@@ -5,19 +5,6 @@
 By following the instructions you will be able to run the project in your local environment.
 The deployment section contains information on deploying the app on production environment.
 
-### Technologies
-
-* python
-* flask
-* flask-sqlalchemy
-* flask-bootstrap
-* flask-wtf
-* cryptography (for running ```quiz.py```)
-
-### Database
-
-* sqlite
-
 ## Project description
 * config.py- contains the configuration values for the application like secret_key, database_url etc.
 * forms.py- defines wtforms used in the application.
@@ -37,6 +24,7 @@ At the root url a user is shown a form where he can put feature request. The for
 ### Validation Logic
 * All the fields are required
 * Title can’t be more than 250 characters long
+* Priority can't be less than 1
 * Date should be given in MM/dd/yyyy format, past  date is not allowed.
 * Description field can’t be more that 1000 characters long
 
@@ -45,18 +33,39 @@ At the root url a user is shown a form where he can put feature request. The for
 At the database layer added an extra column is added in the feature_request table named 'created' which keep tracks of which feature was added when.
 ```
 
-## Deployment
+### Technologies
 
-## To run the app
+#### Language
+
+python
+
+#### Framework
+
+Flask
+
+#### Modules
+
+* flask-bootstrap
+* flask-wtf
+* cryptography (for running ```quiz.py```)
+
+#### Database
+
+* sqlite
+* ```orm``` - flask-sqlalchemy
+
+### Testing
+
+Not implemented.
+
+### Deployment
+The application is deployed on Ubuntu 18.04.2 using nginx and gunicorn.
+Deployed version can be found at : http://18.220.31.213/
+
+### To run the app
 
 * pip install pipenv (if not already installed)
 * git clone this repository
+* cd feature-request
 * pipenv install
 * pipenv run python feature_req.py
-* create a sqlite db named isw.db in your project root directory.
-  * use command ```sqlite3 isw.db```, install sqlite3 if necessary
-
-## Testing
-
-Not provided.
-
