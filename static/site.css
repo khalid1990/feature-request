@@ -1,0 +1,23 @@
+.container {
+    width : 800px;
+}
+
+.navbar.navbar-default h1 {
+    text-align: center;
+}
+
+.navbar h1 a:hover {
+    text-decoration: none
+}
+
+#submit_button {
+    width : 100px;
+    float: right;
+}
+
+#feature_req_form .form-group {
+    /* wtf.quick_form() method doesn't add relatively positioned input-group class
+     * around input fields which is required for perfectly positioning the calendar popup.
+     */
+    position: relative;
+}

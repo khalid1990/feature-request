@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block page_body %}
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <h1>Add Feature Request</h1>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            {{ wtf.quick_form(form, button_map={'submit' : 'primary'},
+                 novalidate=True, id="feature_req_form") }}  
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script type="text/javascript">
+        $(function() {
+            $('#target_date').datetimepicker({
+                format : 'MM/DD/YYYY'
+            });
+        });
+    </script>
+{% endblock %}

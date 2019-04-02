@@ -1,0 +1,35 @@
+{% extends "bootstrap/base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    Feature Request
+{% endblock %}
+
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" href="{{url_for('static', filename='site.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-default">
+    <h1><a href="{{ url_for('feature_request') }}">ISW - JIRA</a></h1>
+</nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% for msg in get_flashed_messages() %}
+            <div class="alert alert-success">{{ msg }}</div>
+        {% endfor %}
+
+        {% block page_body%}
+        {% endblock %}
+    </div>
+{% endblock %}
